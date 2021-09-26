@@ -10,3 +10,5 @@ if [ -d ~/.bashrc.d ]; then
 fi
 
 unset rc
+
+source ~/.profile

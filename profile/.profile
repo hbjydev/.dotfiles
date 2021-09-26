@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-export STOW_FOLDERS=( "nvim" "bash" "profile" )
-export DOTFILES=$HOME/.dotfiles
+export STOW_FOLDERS="nvim,git,personal,bash,profile,bin"
+export DOTFILES="$HOME/.dotfiles"
 

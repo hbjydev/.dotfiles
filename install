@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-for folder in ${STOW_FOLDERS[@]}; do
+folders=`find . -maxdepth 1 -type d ! \( -path ./.git -prune \) | sed '1d' | sed 's/.\///g'`
+
+for folder in $folders; do
+  echo "Clearing and adding $folder"
   stow -D $folder
   stow $folder
 done
