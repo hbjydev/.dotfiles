@@ -23,12 +23,18 @@ return require('packer').startup(function ()
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-github.nvim'
+  use 'nvim-lua/popup.nvim'
 
   -- LSP
-  use 'nvim-lua/popup.nvim'
   use 'nvim-lua/lsp-status.nvim'
   use 'nvim-lua/lsp_extensions.nvim'
   use 'neovim/nvim-lspconfig'
+  use 'glepnir/lspsaga.nvim'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'saadparwaiz1/cmp_luasnip'
+
+  use 'L3MON4D3/LuaSnip'
   
   -- NERDTree & Co.
   use 'preservim/nerdtree'
@@ -38,3 +44,4 @@ return require('packer').startup(function ()
   -- Themes
   use 'gruvbox-community/gruvbox'
 end)
+

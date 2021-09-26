@@ -12,3 +12,4 @@ fi
 unset rc
 
 source ~/.profile
+
