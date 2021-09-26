@@ -1,0 +1,24 @@
+#!/bin/bash
+source $HOME/.config/scwbackup
+
+if [ $# -lt 2 ]; then
+  echo -e "Usage $0 <time or delta> [file to restore] <restore to>
+    Exemple:
+    \t$ $0 2018-7-21 recovery/  ## recovers * from closest backup to date
+    \t$ $0 0D secret data/  ## recovers most recent file nammed 'secret'";
+  exit;
+fi
+
+if [ $# -eq 2 ]; then
+  duplicity \
+    --time $1 \
+    ${SCW_BUCKET} $2
+fi
+
+if [ $# -eq 3 ]; then
+  duplicity \
+    --time $1 \
+    --file-to-restore $2 \
+    ${SCW_BUCKET} $3
+fi
+
