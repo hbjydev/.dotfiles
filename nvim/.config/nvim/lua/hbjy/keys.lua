@@ -24,6 +24,6 @@ mapkey('n', '<leader>l', '<C-w>l', options)
 mapkey('n', '<leader>q', ':q<cr>', options)
 
 mapkey('n', '<leader>pv', ':NERDTree<cr>', options)
-mapkey('n', '<leader>ps', ':Telescope find_files<cr>', options)
+mapkey('n', '<leader>pf', ':Telescope find_files<cr>', options)
 mapkey('n', '<leader>pg', ':Telescope live_grep<cr>', options)
 
