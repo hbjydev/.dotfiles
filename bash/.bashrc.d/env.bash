@@ -10,3 +10,4 @@ then
 fi
 export PATH
 
+export EDITOR="nvim"
