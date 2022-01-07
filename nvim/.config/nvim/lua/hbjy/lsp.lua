@@ -3,14 +3,27 @@ local luasnip = require('luasnip')
 local nvim_lsp = require('lspconfig')
 local saga = require('lspsaga')
 
-local function on_attach()
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  -- mappings options
+  local opts = { noremap=true, silent=true }
+
+  -- keymaps
+  buf_set_keymap('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 end
 
-nvim_lsp.intelephense.setup{}
+nvim_lsp.intelephense.setup{ on_attach = on_attach }
 nvim_lsp.tsserver.setup{ on_attach = on_attach }
-nvim_lsp.yamlls.setup{}
-nvim_lsp.gopls.setup{}
--- nvim_lsp.sumneko_lua.setup{} TODO: setup sumneko locally
+nvim_lsp.eslint.setup{ on_attach = on_attach }
+nvim_lsp.yamlls.setup{ on_attach = on_attach }
+nvim_lsp.gopls.setup{ on_attach = on_attach }
+nvim_lsp.sumneko_lua.setup{ on_attach = on_attach }
 
 cmp.setup {
   snippet = {
@@ -55,3 +68,4 @@ cmp.setup {
 }
 
 saga.init_lsp_saga()
+
