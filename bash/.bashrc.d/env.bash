@@ -11,3 +11,10 @@ fi
 export PATH
 
 export EDITOR="nvim"
+
+eval "$(direnv hook bash)"
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+eval "$(scw autocomplete script shell=bash)"
+

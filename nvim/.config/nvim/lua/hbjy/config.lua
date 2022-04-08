@@ -1,5 +1,6 @@
 local actions = require("telescope.actions")
 
+local g = vim.g
 local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
@@ -47,4 +48,8 @@ require("telescope").setup{
         qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new
     }
 }
+
+require('codicons').setup{}
+
+g.NERDTreeWinPos = "right"
 

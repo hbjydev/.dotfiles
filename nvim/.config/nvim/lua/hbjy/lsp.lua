@@ -1,5 +1,6 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
+local lspkind = require('lspkind')
 local nvim_lsp = require('lspconfig')
 local saga = require('lspsaga')
 
@@ -24,6 +25,7 @@ nvim_lsp.eslint.setup{ on_attach = on_attach }
 nvim_lsp.yamlls.setup{ on_attach = on_attach }
 nvim_lsp.gopls.setup{ on_attach = on_attach }
 nvim_lsp.sumneko_lua.setup{ on_attach = on_attach }
+nvim_lsp.sourcekit.setup{ on_attach = on_attach }
 
 cmp.setup {
   snippet = {
@@ -64,6 +66,14 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+  },
+  formatting = {
+    -- fields = { 'kind', 'abbr', 'menu' },
+    format = lspkind.cmp_format({
+      with_text = false,
+      maxwidth = 50,
+      preset = 'codicons',
+    }),
   },
 }
 

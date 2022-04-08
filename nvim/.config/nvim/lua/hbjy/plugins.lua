@@ -33,9 +33,9 @@ return require('packer').startup(function ()
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
-
   use 'L3MON4D3/LuaSnip'
-  
+  use 'onsails/lspkind-nvim'
+
   -- NERDTree & Co.
   use 'preservim/nerdtree'
   use 'Xuyuanp/nerdtree-git-plugin'
@@ -43,5 +43,10 @@ return require('packer').startup(function ()
 
   -- Themes
   use 'gruvbox-community/gruvbox'
+  use 'mortepau/codicons.nvim'
+
+  -- Polyglot Themes
+  use 'sheerun/vim-polyglot'
+  use 'jwalton512/vim-blade'
 end)
 
