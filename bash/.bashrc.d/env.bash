@@ -4,17 +4,16 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific environment
+
+export EDITOR="nvim"
+
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
-export EDITOR="nvim"
-
-eval "$(direnv hook bash)"
-
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-eval "$(scw autocomplete script shell=bash)"
+[[ -x "$(command -v direnv)" ]] && eval "$(direnv hook bash)"
+[[ -d $HOME/.krew ]] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+[[ -x "$(command -v scw)" ]] && eval "$(scw autocomplete script shell=bash)"
 

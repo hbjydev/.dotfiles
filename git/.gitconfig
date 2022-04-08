@@ -6,10 +6,12 @@ email = hi@hbjy.dev
 [commit]
 #gpgsign = true
 
+[core]
+autocrlf = input
+
 [init]
 defaultBranch = main
 
-[core]
-autocrlf = input
 [pull]
-	rebase = false
+rebase = false
+
