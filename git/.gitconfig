@@ -8,3 +8,6 @@ email = hi@hbjy.dev
 
 [core]
 	autocrlf = false
+
+[init]
+	defaultBranch = main
