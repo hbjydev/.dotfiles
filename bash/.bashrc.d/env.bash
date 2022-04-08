@@ -11,3 +11,5 @@ fi
 export PATH
 
 export EDITOR="nvim"
+
+eval "$(direnv hook bash)"
