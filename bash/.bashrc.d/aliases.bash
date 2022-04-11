@@ -11,6 +11,7 @@ alias dclf="docker compose logs -f"
 alias dcc="docker compose cp"
 alias dci="docker compose inspect"
 alias dce="docker compose exec"
+alias dcr="docker compose restart"
 
 # mainly for core dev
 alias dcewd="docker compose exec -u www-data"
