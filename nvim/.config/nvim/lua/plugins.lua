@@ -48,7 +48,7 @@ return packer.startup(function (use)
   }
 
   use 'tpope/vim-fugitive'
- 
+
   use {
     'folke/tokyonight.nvim',
     event = "VimEnter",
