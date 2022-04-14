@@ -6,7 +6,9 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 echo "installing required flatpaks..."
 to_install=(
-  "com.discordapp.Discord" "sh.cider.Cider" "com.microsoft.Teams"
+  "com.discordapp.Discord"
+  "sh.cider.Cider"
+  "com.microsoft.Teams"
 )
 
 for pak in "${to_install[@]}"
