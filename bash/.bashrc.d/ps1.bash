@@ -1,14 +1,28 @@
 #!/bin/bash
 
-magenta=$(tput setaf 5)
-blue=$(tput setaf 4)
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-reset=$(tput sgr0)
+export PS1=""
 
-function gitbranch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+# returns the current git branch
+function git_branch() {
+  git branch --show-current
 }
 
-export PS1="\[$reset\]$(tput dim)╔ $(tput sgr0)$(tput bold)\[$magenta\]\u\[$reset\]@\[$magenta\]$(tput bold)\h \[$red\]\W \[$green\]\$(gitbranch)\[$reset\]\\n$(tput dim)╚ \$\[$reset\] "
+bgreen="$(tput setaf 10)"
+green="$(tput setaf 2)"
+blue="$(tput setaf 4)"
+
+gray="$(tput setaf 8)"
+
+reset="$(tput sgr0)"
+
+ps1="$green\u"
+ps1="$ps1$reset@"
+ps1="$ps1$blue\h"
+ps1="$ps1 $gray\W"
+ps1="$ps1 $bgreen($(git_branch))"
+ps1="$ps1 $reset\$ "
+
+export PS1="$ps1"
+
+#export PS1="$green\u$reset@$blue\h $gray\W $bgreen($(git_branch)) $reset\$ "
 
